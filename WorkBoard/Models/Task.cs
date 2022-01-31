@@ -9,6 +9,8 @@ namespace WorkBoard.Models
     public class Task
     {
         [Display(Name = "ID Tasku")]
+        [Required(ErrorMessage = "Podaj id tasku")]
+        [StringLength(4, MinimumLength = 1, ErrorMessage = "Id tasku nie powinno przekraczać 4 cyfr")]
         public int task_id { get; set; }
 
         [Display(Name = "ID Użytkownika")]
