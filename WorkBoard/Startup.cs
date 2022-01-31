@@ -69,13 +69,12 @@ namespace WorkBoard
             {
                 endpoints.MapControllerRoute(
                     name: "taskDetails",
-                    pattern: "task/{id?}",
-                    defaults: new { controller = "Task", action = "Details"},
-                    constraints: new { id = " ([0-9]) {1,4}" }); 
+                    pattern: "task/{id}",
+                    defaults: new { controller = "Task", action = "Details" });
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Task}/{id?}/{action=Index}"); // jeœli controller = task > jest na stronie g³ównej
+                    pattern: "{controller=Home}/{action=Index}/{id?}"); // jeœli controller = task > jest na stronie g³ównej
                 endpoints.MapRazorPages();
             });
         }
