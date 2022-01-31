@@ -10,7 +10,7 @@ namespace WorkBoard.Models
     {
         [Display(Name = "ID Tasku")]
         [Required(ErrorMessage = "Podaj id tasku")]
-        [StringLength(4, MinimumLength = 1, ErrorMessage = "Id tasku nie powinno przekraczać 4 cyfr")]
+        //[StringLength(4, MinimumLength = 1, ErrorMessage = "Id tasku nie powinno przekraczać 4 cyfr")] tutaj zamienić z strlenght na range[]
         public int task_id { get; set; }
 
         [Display(Name = "ID Użytkownika")]

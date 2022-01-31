@@ -51,5 +51,13 @@ namespace WorkBoard.Controllers
             return View(db.Tasks.Find(id));
             // co jeśli takiego id nie ma? dodać obsługę błedów!
         }
+
+        public IActionResult Delete(int id)
+        {
+            Task task = db.Tasks.Find(id);
+            db.Tasks.Remove(task);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
