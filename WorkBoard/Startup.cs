@@ -69,7 +69,7 @@ namespace WorkBoard
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Task}/{action=Index}/{id?}"); // jeœli controller = task > jest na stronie g³ównej
                 endpoints.MapRazorPages();
             });
         }

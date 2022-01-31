@@ -46,5 +46,9 @@ namespace WorkBoard.Controllers
             return View();
         }
 
+        public IActionResult Details(int id)
+        {
+            return View(db.Tasks.Find(id));
+        }
     }
 }

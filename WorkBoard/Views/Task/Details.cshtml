@@ -1,0 +1,66 @@
+﻿@model WorkBoard.Models.Task
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Task</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.task_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.task_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.team)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.team)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.creation_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.creation_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.deadline_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.deadline_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.modification_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.modification_date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.task_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
