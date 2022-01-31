@@ -49,6 +49,7 @@ namespace WorkBoard.Controllers
         public IActionResult Details(int id)
         {
             return View(db.Tasks.Find(id));
+            // co jeśli takiego id nie ma? dodać obsługę błedów!
         }
     }
 }

@@ -70,7 +70,8 @@ namespace WorkBoard
                 endpoints.MapControllerRoute(
                     name: "taskDetails",
                     pattern: "task/{id}",
-                    defaults: new { controller = "Task", action = "Details" });
+                    defaults: new { controller = "Task", action = "Details" },
+                    constraints: new { id = "[0-9]{1,4}" });
 
                 endpoints.MapControllerRoute(
                     name: "default",
