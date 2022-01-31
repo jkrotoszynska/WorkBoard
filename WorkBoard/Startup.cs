@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WorkBoard.Data;
+using WorkBoard.Models;
 
 namespace WorkBoard
 {
@@ -29,7 +30,12 @@ namespace WorkBoard
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection"))); // proces uwierzytelniania u¿ytkowników
+
+            services.AddDbContext<TasksContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("WorkBoardConnection")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
