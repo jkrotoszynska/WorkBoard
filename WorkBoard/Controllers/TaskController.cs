@@ -19,7 +19,7 @@ namespace WorkBoard.Controllers
         }
         public IActionResult Index()
         {
-            return View(db.Tasks.OrderByDescending(t => t.task_name));
+            return View("Index", db.Tasks.OrderByDescending(t => t.task_name));
         }
 
         public async Task<IActionResult> FilteredByName(string searchName)

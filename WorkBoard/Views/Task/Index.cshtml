@@ -6,6 +6,12 @@
 
 <h1>Index</h1>
 
+@if (TempData["message"] != null)
+{
+    <h3 class="text-info">@TempData["message"]</h3>
+}
+
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -43,41 +49,46 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.task_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.user_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.task_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.team)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.creation_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.deadline_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modification_date)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.task_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.task_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.task_id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.task_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.task_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.creation_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deadline_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modification_date)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.task_id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.task_id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.task_id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section ScriptsHeader{
+    <script>alert(new Date())</script>
+}
