@@ -59,5 +59,24 @@ namespace WorkBoard.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            Task task = db.Tasks.Find(id);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit([Bind(include:"task_id, user_id, task_name, status, description, team, creation_date, deadline_date, modification_date")] Task task)
+        {
+            if(ModelState.IsValid)
+            {
+                //Task task = db.Tasks.Find(id);
+                db.Tasks.Update(task);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }
