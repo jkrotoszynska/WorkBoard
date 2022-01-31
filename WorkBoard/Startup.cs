@@ -68,8 +68,13 @@ namespace WorkBoard
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "taskDetails",
+                    pattern: "task/{id?}",
+                    defaults: new { controller = "Task", action = "Details"}); 
+
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Task}/{action=Index}/{id?}"); // jeœli controller = task > jest na stronie g³ównej
+                    pattern: "{controller=Task}/{id?}/{action=Index}"); // jeœli controller = task > jest na stronie g³ównej
                 endpoints.MapRazorPages();
             });
         }
