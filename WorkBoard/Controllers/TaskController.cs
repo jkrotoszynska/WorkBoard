@@ -48,15 +48,23 @@ namespace WorkBoard.Controllers
 
         public IActionResult Details(int id)
         {
+            return View(db.Tasks.Find(id));
+
+            try
+            {
                 Task task = db.Tasks.Find(id);
                 if (task == null)
                 {
                     return NotFound();
                 }
                 return View(task);
+            }
+            catch (Exception ex)
+            {
+                // ???
+            }
 
-            // co jeśli takiego id nie ma? dodać obsługę błedów!
-            //sprawdzic czy taka obsługa starczy?
+
         }
 
         public IActionResult Delete(int id)
