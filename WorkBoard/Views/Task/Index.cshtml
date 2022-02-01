@@ -18,27 +18,29 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.task_id)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.user_id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.task_name)
+                <div col-span="2">
+                    @Html.DisplayNameFor(model => model.task_name)
+                </div>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.status)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.description)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.team)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.creation_date)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.deadline_date)
             </th>
@@ -52,9 +54,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.task_id)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.user_id)
                 </td>
@@ -63,18 +65,18 @@
                 </td>
                 <td>     
                     <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info" role="progressbar" col-span="2" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.description)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.team)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.creation_date)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.deadline_date)
                 </td>
