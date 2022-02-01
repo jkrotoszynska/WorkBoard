@@ -4,7 +4,17 @@
     ViewData["Title"] = "Lista tasków";
 }
 
-<h1>Index</h1>
+<div class="mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>TASKS</h1>
+        <h4 >
+            <a asp-action="Create">
+                 <input type="submit" value="Create Task" class="btn btn-dark font-weight-bold" />
+            </a>
+        </h4>
+
+    </div>
+</div>
 
 @if (TempData["message"] != null)
 {
@@ -12,35 +22,33 @@
 }
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="overflow-auto">
 <table class="table">
     <thead>
         <tr>
             @*<th>
-                @Html.DisplayNameFor(model => model.task_id)
-            </th>*@
+            @Html.DisplayNameFor(model => model.task_id)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.user_id)
             </th>
-            <th>               
-                 @Html.DisplayNameFor(model => model.task_name)                
+            <th>
+                @Html.DisplayNameFor(model => model.task_name)
             </th>
-        
+
             <th class="w-25">
                 @Html.DisplayNameFor(model => model.status)
             </th>
-           
+
             @*<th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>*@
+            @Html.DisplayNameFor(model => model.description)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.team)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.creation_date)
-            </th>*@
+            @Html.DisplayNameFor(model => model.creation_date)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.deadline_date)
             </th>
@@ -48,6 +56,7 @@
                 @Html.DisplayNameFor(model => model.modification_date)
             </th>
             <th></th>
+
         </tr>
     </thead>
     <tbody>
@@ -55,28 +64,28 @@
         {
             <tr>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.task_id)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.task_id)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.user_id)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.task_name)
                 </td>
-                <td class="align-items-center">     
+                <td class="align-items-center">
                     <div class="progress">
                         <div class="progress-bar bg-info" role="progressbar" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.team)
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.creation_date)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.creation_date)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.deadline_date)
                 </td>
@@ -84,17 +93,20 @@
                     @Html.DisplayFor(modelItem => item.modification_date)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.task_id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.task_id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.task_id">Delete</a>
+                    <div class="d-flex">
+                        <a asp-action="Edit" asp-route-id="@item.task_id"><i class="bi bi-pencil-square" style="font-size:18px;"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.task_id"><i class="bi bi-info-square-fill" style="font-size:18px; padding: 0px 6px 0px 8px;"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.task_id"><i class="bi bi-trash-fill" style="font-size: 18px;"></i></a>
+                    </div>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
 
-@section ScriptsHeader{ 
- <script>
-     //alert(new Date())
- </script>
+@section ScriptsHeader{
+    <script>
+         //alert(new Date())
+    </script>
 }
