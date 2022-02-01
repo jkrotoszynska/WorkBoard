@@ -79,6 +79,8 @@ namespace WorkBoard
                 // w pattern jak zrobimy {id?} po home a przed action to nie dzia³a!!!
                 endpoints.MapRazorPages();
             });
+
+
         }
     }
 }
