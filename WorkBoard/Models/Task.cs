@@ -11,6 +11,7 @@ namespace WorkBoard.Models
         [Display(Name = "ID Tasku")]
         [Required(ErrorMessage = "Podaj id tasku")]
         // [IntLength(4, MinimumLength = 1, ErrorMessage = "Id tasku nie powinno przekraczać 4 cyfr")]
+
         public int task_id { get; set; }
 
         [Display(Name = "ID Użytkownika")]
@@ -29,15 +30,15 @@ namespace WorkBoard.Models
         public string team { get; set; }
 
         [Display(Name = "Data rozpoczęcia")]
-        [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}")]
         public DateTime creation_date { get; set; }
 
         [Display(Name = "Data zakończenia")]
-        [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}")]
         public DateTime deadline_date { get; set; }
 
         [Display(Name = "Data modyfikacji")]
-        [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}")]
         public DateTime modification_date { get; set; } 
     }
 }
