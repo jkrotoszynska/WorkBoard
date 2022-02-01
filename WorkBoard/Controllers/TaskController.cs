@@ -53,7 +53,8 @@ namespace WorkBoard.Controllers
                 Task task = db.Tasks.Find(id);
                 if (task == null)
                 {
-                    return NotFound();
+                    Response.StatusCode = 404;
+                    return View("IdNotFound", id);
                 }
                 return View(task);
             }
