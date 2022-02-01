@@ -48,21 +48,42 @@ namespace WorkBoard.Controllers
 
         public IActionResult Details(int id)
         {
-            return View(db.Tasks.Find(id));
+                Task task = db.Tasks.Find(id);
+                if (task == null)
+                {
+                    return NotFound();
+                }
+                return View(task);
+
             // co jeśli takiego id nie ma? dodać obsługę błedów!
+            //sprawdzic czy taka obsługa starczy?
         }
 
         public IActionResult Delete(int id)
         {
-            Task task = db.Tasks.Find(id);
-            db.Tasks.Remove(task);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            
+            if(ModelState.IsValid)
+            {
+                Task task = db.Tasks.Find(id);
+                if (task == null)
+                {
+                    return NotFound();
+                }
+                db.Tasks.Remove(task);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+            
         }
 
         public IActionResult Edit(int id)
         {
             Task task = db.Tasks.Find(id);
+            if(task == null)
+            {
+                return NotFound();
+            }
             return View(task);
         }
 
@@ -71,7 +92,6 @@ namespace WorkBoard.Controllers
         {
             if(ModelState.IsValid)
             {
-                //Task task = db.Tasks.Find(id);
                 db.Tasks.Update(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
