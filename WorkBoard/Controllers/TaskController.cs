@@ -48,8 +48,6 @@ namespace WorkBoard.Controllers
 
         public IActionResult Details(int id)
         {
-            return View(db.Tasks.Find(id));
-
             try
             {
                 Task task = db.Tasks.Find(id);
@@ -62,9 +60,8 @@ namespace WorkBoard.Controllers
             catch (Exception ex)
             {
                 // ???
+                return View();
             }
-
-
         }
 
         public IActionResult Delete(int id)
