@@ -24,10 +24,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.user_id)
             </th>
-            <th>
-                <div col-span="2">
-                    @Html.DisplayNameFor(model => model.task_name)
-                </div>
+            <th colspan="2">               
+                 @Html.DisplayNameFor(model => model.task_name)                
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.status)
@@ -63,9 +61,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.task_name)
                 </td>
-                <td>     
+                <td colspan="2">     
                     <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" col-span="2" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </td>
                 @*<td>
