@@ -70,6 +70,10 @@ namespace WorkBoard.Controllers
         public IActionResult Edit(int id)
         {
             Task task = db.Tasks.Find(id);
+            if(task == null)
+            {
+                return NotFound();
+            }
             return View(task);
         }
 
@@ -78,7 +82,6 @@ namespace WorkBoard.Controllers
         {
             if(ModelState.IsValid)
             {
-                //Task task = db.Tasks.Find(id);
                 db.Tasks.Update(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
