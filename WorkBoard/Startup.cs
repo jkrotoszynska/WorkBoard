@@ -51,7 +51,7 @@ namespace WorkBoard
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
-                app.UseStatusCodePages(Text.Plain, "Wprowadzono niezgodne z wymaganiami ID");
+                //app.UseStatusCodePages(Text.Plain, "Wprowadzono niezgodne z wymaganiami ID");
             }
             else
             {
@@ -69,12 +69,7 @@ namespace WorkBoard
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "taskDetails",
-                    pattern: "task/{id}",
-                    defaults: new { controller = "Task", action = "Details" },
-                    constraints: new { id = "[0-9]{1,4}" });
-
+                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"); // jeœli controller = task > jest na stronie g³ównej
