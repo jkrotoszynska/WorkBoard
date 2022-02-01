@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WorkBoard.Data;
 using WorkBoard.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WorkBoard
 {
@@ -50,6 +51,7 @@ namespace WorkBoard
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
+                app.UseStatusCodePages(Text.Plain, "Wprowadzono niezgodne z wymaganiami ID");
             }
             else
             {
