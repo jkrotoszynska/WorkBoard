@@ -95,7 +95,7 @@ namespace WorkBoard.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit([Bind(include:"task_id, user_id, task_name, status, description, team, creation_date, deadline_date, modification_date")] Task task)
+        public IActionResult Edit([Bind(include:"task_id, ApplicationUserId, task_name, status, description, team, creation_date, deadline_date, modification_date")] Task task)
         {
             if(ModelState.IsValid)
             {

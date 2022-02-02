@@ -8,14 +8,16 @@ namespace WorkBoard.Models
 {
     public class Task
     {
+        [Key]
         [Display(Name = "Task ID")]
-        [Required(ErrorMessage = "Enter task ID")]
+        //[Required(ErrorMessage = "Enter task ID")]
         // [IntLength(4, MinimumLength = 1, ErrorMessage = "Id tasku nie powinno przekraczać 4 cyfr")]
 
         public int task_id { get; set; }
 
         [Display(Name = "User")]
-        public int user_id { get; set; }
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name = "Task name")]
         public string task_name{ get; set; }
@@ -40,5 +42,7 @@ namespace WorkBoard.Models
         [Display(Name = "Mod. Date")]
         [DisplayFormat(DataFormatString = "{0: dd-MM-yyyy}")]
         public DateTime modification_date { get; set; } 
+
+
     }
 }

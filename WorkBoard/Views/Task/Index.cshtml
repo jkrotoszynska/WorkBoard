@@ -33,7 +33,7 @@
                 @Html.DisplayNameFor(model => model.team)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.user_id)
+                @Html.DisplayNameFor(model => model.ApplicationUserId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.task_name)
@@ -75,7 +75,7 @@
                     var color = String.Format("#{0:X6}", random.Next(0x1000000) & 0x7F7F7F);
                 }
                 <div class="d-flex text-white rounded-circle align-items-center justify-content-center shadow-sm" style="width:35px; height:35px; background-color: @color;">
-                    <div class="font-weight-bold">@Html.DisplayFor(modelItem => item.user_id)</div>
+                    <div class="font-weight-bold">@Html.DisplayFor(modelItem => item.ApplicationUserId)</div>
                 </div>
                 
             </td>

@@ -10,5 +10,7 @@ namespace WorkBoard.Models
     {
         public string Name { get; set; }
         public string Lastname { get; set; }
+
+        public List<Task> Tasks { get; set; }
     }
 }
