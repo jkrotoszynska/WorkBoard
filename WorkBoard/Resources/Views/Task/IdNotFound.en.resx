@@ -117,40 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CreateTask" xml:space="preserve">
-    <value>Utwórz Zadanie</value>
+  <data name="Error" xml:space="preserve">
+    <value>Error 404 Not Found:</value>
   </data>
-  <data name="DeadlineDate" xml:space="preserve">
-    <value>Data Końcowa</value>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Error 404</value>
   </data>
-  <data name="Done" xml:space="preserve">
-    <value>Ukończone</value>
+  <data name="ListBtn" xml:space="preserve">
+    <value>Click here to see the list of all tasks</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
-  </data>
-  <data name="Info" xml:space="preserve">
-    <value>Informacje</value>
-  </data>
-  <data name="ModificationDate" xml:space="preserve">
-    <value>Data Modyfikacji</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="TaskList" xml:space="preserve">
-    <value>Lista Zadań</value>
-  </data>
-  <data name="TaskName" xml:space="preserve">
-    <value>Nazwa Zadania</value>
-  </data>
-  <data name="Tasks" xml:space="preserve">
-    <value>Zadania</value>
-  </data>
-  <data name="Team" xml:space="preserve">
-    <value>Zespół</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>Użytkownik</value>
+  <data name="YourTask" xml:space="preserve">
+    <value>Task with your ID cannot be found.</value>
   </data>
 </root>
