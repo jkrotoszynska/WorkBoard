@@ -14,11 +14,15 @@ namespace WorkBoard.Models
         }
 
         public DbSet<Task> Tasks { get; set; } // dokonaliśmy mapowania po kodzie (zamieniamy rekordy na obiekty)
-
+        public DbSet<ApplicationUser> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Task>().HasKey("task_id"); // wskazujemy klucz podstawowy encji
-            modelBuilder.Entity<Task>().ToTable("tasks"); 
+            modelBuilder.Entity<Task>().ToTable("task");
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(t => t.Tasks)
+                .WithOne(u => u.ApplicationUser)
+                .HasForeignKey(t => t.ApplicationUserId);
         }
 
     }

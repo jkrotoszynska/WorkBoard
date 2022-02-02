@@ -1,5 +1,5 @@
 ﻿@model WorkBoard.Models.Task
-
+@using WorkBoard.Models;
 @{
     ViewData["Title"] = "Details";
 }
@@ -17,10 +17,10 @@
             @Html.DisplayFor(model => model.task_id)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.user_id)
+            @Html.DisplayNameFor(model => model.ApplicationUserId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.user_id)
+            @Html.DisplayFor(model => model.ApplicationUserId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.task_name)
