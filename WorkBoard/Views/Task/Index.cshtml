@@ -18,7 +18,7 @@
 
 @if (TempData["message"] != null)
 {
-    <h3 class="text-info">@TempData["message"]</h3>
+    <h3 class="text-info text-dark">@TempData["message"]</h3>
 }
 
 
@@ -29,7 +29,7 @@
             @*<th>
             @Html.DisplayNameFor(model => model.task_id)
         </th>*@
-            <th>
+            <th>             
                 @Html.DisplayNameFor(model => model.team)
             </th>
             <th>
@@ -66,18 +66,45 @@
             @*<td>
             @Html.DisplayFor(modelItem => item.task_id)
         </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.team)
+            <td class="align-middle">
+                <span class="font-weight-bold">@Html.DisplayFor(modelItem => item.team)</span>
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.user_id)
+            <td class="align-middle">
+                @{ 
+                    var random = new Random();
+                    var color = String.Format("#{0:X6}", random.Next(0x1000000) & 0x7F7F7F);
+                }
+                <div class="d-flex text-white rounded-circle align-items-center justify-content-center shadow-sm" style="width:35px; height:35px; background-color: @color;">
+                    <div class="font-weight-bold">@Html.DisplayFor(modelItem => item.user_id)</div>
+                </div>
+                
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.task_name)
             </td>
-            <td class="align-items-center">
+            <td class="align-middle">
                 <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
+                    @{
+                        int status = Int32.Parse(item.status);
+                        string statusColor;
+                        if (status <= 30)
+                        {
+                            statusColor = "danger";
+                        }
+                        else if (status > 30 && status <= 60)
+                        {
+                            statusColor = "warning";
+                        }
+                        else if (status > 60 && status < 100)
+                        {
+                            statusColor = "info";
+                        }
+                        else
+                        {
+                            statusColor = "success";
+                        }
+                    }
+                    <div class="progress-bar @("bg-" + statusColor)" role="progressbar" style="width: @(status + "%")" aria-valuenow="@(status)" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </td>
             @*<td>
@@ -86,17 +113,17 @@
             @*<td>
             @Html.DisplayFor(modelItem => item.creation_date)
         </td>*@
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.deadline_date)
             </td>
-            <td>
+            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.modification_date)
             </td>
-            <td>
+            <td class="align-middle">
                 <div class="d-flex">
-                    <a asp-action="Edit" asp-route-id="@item.task_id"><i class="bi bi-pencil-square" style="font-size:18px;"></i></a>
-                    <a asp-action="Details" asp-route-id="@item.task_id"><i class="bi bi-info-square-fill" style="font-size:18px; padding: 0px 6px 0px 8px;"></i></a>
-                    <a asp-action="Delete" asp-route-id="@item.task_id"><i class="bi bi-trash-fill" style="font-size: 18px;"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.task_id"><i class="bi bi-pencil-square text-warning" style="font-size:19px;"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.task_id"><i class="bi bi-info-square-fill text-info" style="font-size:19px; padding: 0px 7px 0px 9px;"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.task_id"><i class="bi bi-trash-fill text-danger" on style="font-size: 19px;"></i></a>
                 </div>
             </td>
         </tr>
