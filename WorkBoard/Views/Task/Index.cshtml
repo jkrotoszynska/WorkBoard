@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WorkBoard.Models.Task>
+﻿@model IEnumerable<WorkBoard.Models.Task>;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 
 @{
     ViewData["Title"] = "Lista tasków";
@@ -6,7 +7,7 @@
 
 <div class="mt-4">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>TASKS</h1>
+        <h1>@localizer["Tasks"]</h1>
         <h4 >
             <a asp-action="Create">
                  <input type="submit" value="Create Task" class="btn btn-dark font-weight-bold" />
@@ -30,7 +31,8 @@
             @Html.DisplayNameFor(model => model.task_id)
         </th>*@
             <th>             
-                @Html.DisplayNameFor(model => model.team)
+                @*@Html.DisplayNameFor(model => model.team)*@
+                zespół
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ApplicationUserId)
@@ -121,9 +123,9 @@
             </td>
             <td class="align-middle">
                 <div class="d-flex">
-                    <a asp-action="Edit" asp-route-id="@item.task_id"><i class="bi bi-pencil-square text-warning" style="font-size:19px;"></i></a>
-                    <a asp-action="Details" asp-route-id="@item.task_id"><i class="bi bi-info-square-fill text-info" style="font-size:19px; padding: 0px 7px 0px 9px;"></i></a>
-                    <a asp-action="Delete" asp-route-id="@item.task_id"><i class="bi bi-trash-fill text-danger" on style="font-size: 19px;"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.task_id" title="@localizer["Edit"]"><i class="bi bi-pencil-square text-warning" style="font-size:19px;"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.task_id" title="Info"><i class="bi bi-info-square-fill text-info" style="font-size:19px; padding: 0px 9px 0px 9px;"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.task_id" title="Done"><i class="bi bi-check-square-fill text-success" on style="font-size: 19px;"></i></a>
                 </div>
             </td>
         </tr>
