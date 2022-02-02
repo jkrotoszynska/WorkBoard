@@ -30,6 +30,9 @@
             @Html.DisplayNameFor(model => model.task_id)
         </th>*@
             <th>
+                @Html.DisplayNameFor(model => model.team)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.user_id)
             </th>
             <th>
@@ -43,9 +46,6 @@
             @*<th>
             @Html.DisplayNameFor(model => model.description)
         </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.team)
-            </th>
             @*<th>
             @Html.DisplayNameFor(model => model.creation_date)
         </th>*@
@@ -62,44 +62,44 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.task_id)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.user_id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.task_name)
-                </td>
-                <td class="align-items-center">
-                    <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.description)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.team)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.creation_date)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.deadline_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.modification_date)
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <a asp-action="Edit" asp-route-id="@item.task_id"><i class="bi bi-pencil-square" style="font-size:18px;"></i></a>
-                        <a asp-action="Details" asp-route-id="@item.task_id"><i class="bi bi-info-square-fill" style="font-size:18px; padding: 0px 6px 0px 8px;"></i></a>
-                        <a asp-action="Delete" asp-route-id="@item.task_id"><i class="bi bi-trash-fill" style="font-size: 18px;"></i></a>
-                    </div>
-                </td>
-            </tr>
+        <tr>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.task_id)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.task_name)
+            </td>
+            <td class="align-items-center">
+                <div class="progress">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: @Html.DisplayFor(modelItem => item.status)%" aria-valuenow="@Html.DisplayFor(modelItem => item.status)" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>*@
+            @*<td>
+            @Html.DisplayFor(modelItem => item.creation_date)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.deadline_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modification_date)
+            </td>
+            <td>
+                <div class="d-flex">
+                    <a asp-action="Edit" asp-route-id="@item.task_id"><i class="bi bi-pencil-square" style="font-size:18px;"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.task_id"><i class="bi bi-info-square-fill" style="font-size:18px; padding: 0px 6px 0px 8px;"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.task_id"><i class="bi bi-trash-fill" style="font-size: 18px;"></i></a>
+                </div>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
