@@ -10,11 +10,11 @@ namespace WorkBoard.Models
     {
 
         [Required]
-        //
+        [DataType(DataType.Text)]
         public string Name { get; set; }
 
         [Required]
-        //
+        [DataType(DataType.Text)]
         public string Lastname { get; set; }
 
         [Required]
