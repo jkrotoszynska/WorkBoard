@@ -37,6 +37,12 @@ namespace WorkBoard
                 options.UseSqlServer(
                     Configuration.GetConnectionString("WorkBoardConnection")));
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 3;
+            });
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
