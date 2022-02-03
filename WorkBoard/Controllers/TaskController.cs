@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WorkBoard.Models;
 using Microsoft.EntityFrameworkCore;
-using Task = WorkBoard.Models.Task; // ???
+using Task = WorkBoard.Models.Task;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -14,18 +14,17 @@ namespace WorkBoard.Controllers
     [Authorize]
     public class TaskController : Controller
     {
-        private readonly TasksContext db; // readonly - raz można odczytać
+        private readonly TasksContext db;
 
 
 
         public TaskController(TasksContext context)
         {
-            db = context; // db -> uchwyt do bazy danych
+            db = context;
 
         }
         public IActionResult Index()
         {
-            // return View("Index", db.Tasks.OrderByDescending(t => t.task_name));
             return View("Index", db.Tasks.OrderBy(t => t.team).ThenBy(t => t.task_name));
         }
 
@@ -50,7 +49,7 @@ namespace WorkBoard.Controllers
             {
                 db.Tasks.Add(newTask);
                 db.SaveChanges();            
-                TempData["message"] = " " + newTask.task_name; // istnieje do zakończenia żądania, dłużej niż ViewData
+                TempData["message"] = " " + newTask.task_name;
                 return RedirectToAction("Index");
             }
             return View();
@@ -70,7 +69,6 @@ namespace WorkBoard.Controllers
             }
             catch (Exception ex)
             {
-                // ???
                 return View();
             }
         }

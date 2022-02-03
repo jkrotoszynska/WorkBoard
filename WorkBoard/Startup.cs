@@ -53,7 +53,6 @@ namespace WorkBoard
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            //sesja
             //services.AddDistributedMemoryCache();
             //services.AddSession(options =>
             //{
@@ -119,8 +118,7 @@ namespace WorkBoard
                 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"); // jeœli controller = task > jest na stronie g³ównej
-                // w pattern jak zrobimy {id?} po home a przed action to nie dzia³a!!!
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
 
