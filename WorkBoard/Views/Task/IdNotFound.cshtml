@@ -1,16 +1,17 @@
 ﻿@model int
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 
 @{
-    ViewBag.Title = "404 Error";
+    ViewBag.Title = localizer["ErrorTitle"];
 }
 
 <div class="alert alert-danger mt-1 mb-1">
-    <h4>404 Not Found Error :</h4>
+    <h4>@localizer["Error"]</h4>
     <hr />
     <h5>
-        Task with your ID cannot be found
+        @localizer["YourTask"]
     </h5>
 </div>
 
 <a asp-controller="task" asp-action="" class="btn btn-outline-success"
-   style="width:auto">Click here to see the list of all </a>
+   style="width:auto">@localizer["ListBtn"]</a>
