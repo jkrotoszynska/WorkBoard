@@ -132,6 +132,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informacje</value>
   </data>
+  <data name="LocalTempData" xml:space="preserve">
+    <value>Utworzono nowe zadanie:</value>
+  </data>
   <data name="ModificationDate" xml:space="preserve">
     <value>Data Modyfikacji</value>
   </data>

@@ -117,43 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CreateTask" xml:space="preserve">
-    <value>Create Task</value>
-  </data>
-  <data name="DeadlineDate" xml:space="preserve">
-    <value>End. Date</value>
-  </data>
-  <data name="Done" xml:space="preserve">
-    <value>Done</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="Info" xml:space="preserve">
-    <value>Info</value>
-  </data>
-  <data name="LocalTempData" xml:space="preserve">
+  <data name="NewTask" xml:space="preserve">
     <value>Created new task:</value>
-  </data>
-  <data name="ModificationDate" xml:space="preserve">
-    <value>Mod. Date</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="TaskList" xml:space="preserve">
-    <value>Task List</value>
-  </data>
-  <data name="TaskName" xml:space="preserve">
-    <value>Task Name</value>
-  </data>
-  <data name="Tasks" xml:space="preserve">
-    <value>Tasks</value>
-  </data>
-  <data name="Team" xml:space="preserve">
-    <value>Team</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>User</value>
   </data>
 </root>

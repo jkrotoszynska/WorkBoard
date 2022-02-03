@@ -7,6 +7,10 @@
 
 <h1>@localizer["Create"]</h1>
 
+<!-- Delete after done -->
+<h5>@TempData["UserIdentityFull"]</h5>
+<h5>@TempData["UserIdentityTwo"]</h5>
+
 <h4>@localizer["Task"]</h4>
 <hr />
 <div class="row">
@@ -14,13 +18,13 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-                    <label asp-for="task_id" class="control-label"></label>
-                    <input asp-for="task_id" class="form-control" />
-                    <span asp-validation-for="task_id" class="text-danger"></span>
-                </div>*@
+            <label asp-for="task_id" class="control-label"></label>
+            <input asp-for="task_id" class="form-control" />
+            <span asp-validation-for="task_id" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="ApplicationUserId" class="control-label">@localizer["User"]</label>
-                <input asp-for="ApplicationUserId" class="form-control" />
+                <input asp-for="ApplicationUserId" class="form-control" value="@TempData["UserIdentityTwo"]"/>
                 <span asp-validation-for="ApplicationUserId" class="text-danger"></span>
             </div>
             <div class="form-group">

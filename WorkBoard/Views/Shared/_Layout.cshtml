@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom border-dark box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Task" asp-action="">WorkBoard</a>
+                <a class="navbar-brand" asp-area="" asp-controller="" asp-action="Index">WorkBoard</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,9 +26,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="Index">@localizer["Home"]</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Task" asp-action="Index">@localizer["Tasks"]</a>
-                        </li>
+                        @{
+                            if (User.Identity.IsAuthenticated == true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Task" asp-action="Index">@localizer["Tasks"]</a>
+                                </li>
+                            }
+                        }
+
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @if (signInManager.IsSignedIn(User))
