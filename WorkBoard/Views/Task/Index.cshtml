@@ -19,7 +19,7 @@
 
 @if (TempData["message"] != null)
 {
-    <h3 class="text-info text-dark">@TempData["message"]</h3>
+    <h3 class="text-info text-dark">@localizer["LocalTempData"] @TempData["message"]</h3>
 }
 
 

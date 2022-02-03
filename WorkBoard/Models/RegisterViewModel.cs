@@ -8,7 +8,6 @@ namespace WorkBoard.Models
 {
     public class RegisterViewModel
     {
-
         [Required]
         [DataType(DataType.Text)]
         public string Name { get; set; }

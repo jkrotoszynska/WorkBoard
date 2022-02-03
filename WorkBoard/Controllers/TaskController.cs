@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 using WorkBoard.Models;
 using Microsoft.EntityFrameworkCore;
 using Task = WorkBoard.Models.Task; // ???
+using Microsoft.AspNetCore.Authorization;
 
 namespace WorkBoard.Controllers
 {
+    [Authorize]
     public class TaskController : Controller
     {
         private readonly TasksContext db; // readonly - raz można odczytać
 
+
+
         public TaskController(TasksContext context)
         {
             db = context; // db -> uchwyt do bazy danych
+
         }
         public IActionResult Index()
         {
@@ -30,6 +35,10 @@ namespace WorkBoard.Controllers
 
         public IActionResult Create()
         {
+            string userFirst = User.Identity.Name[0].ToString();
+            string userSecond = User.Identity.Name[1].ToString();
+            TempData["UserIdentityFull"] = User.Identity.Name.ToString();
+            TempData["UserIdentityTwo"] = (userFirst + userSecond).ToUpper();
             return View();
         }
 
@@ -39,9 +48,8 @@ namespace WorkBoard.Controllers
             if (ModelState.IsValid)
             {
                 db.Tasks.Add(newTask);
-                db.SaveChanges();
-
-                TempData["message"] = "Utworzono nowy task: " + newTask.task_name; // istnieje do zakończenia żądania, dłużej niż ViewData
+                db.SaveChanges();            
+                TempData["message"] = " " + newTask.task_name; // istnieje do zakończenia żądania, dłużej niż ViewData
                 return RedirectToAction("Index");
             }
             return View();
