@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Art1Body" xml:space="preserve">
-    <value>Kontroluj wszystkie zadania i procesy swojej firmy.</value>
+    <value>Kontroluj wszystkie zadania i procesy swojej firmy. Organizacja pracy nigdy nie była tak prosta.</value>
   </data>
   <data name="Art1Head" xml:space="preserve">
     <value>Pełna Kontrola</value>
@@ -130,7 +130,7 @@
     <value>Wszystko w jednej przestrzenii</value>
   </data>
   <data name="Art3Body" xml:space="preserve">
-    <value>Zwizualizuj swoją pracę w wygodny i przejrzysty sposób.</value>
+    <value>Zwizualizuj swoją pracę w wygodny i przejrzysty sposób. Wszystko na wyciągnięcie ręki.</value>
   </data>
   <data name="Art3Head" xml:space="preserve">
     <value>Zwizualizuj osiągnięcia</value>
