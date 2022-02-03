@@ -1,9 +1,10 @@
 ﻿@model WorkBoard.Models.Task
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> _userManager
 
 @{
     ViewData["Title"] = localizer["Edit"];
-
+    string userId = _userManager.GetUserId(User);
 }
 
 <h1>@localizer["Edit"]</h1>
@@ -17,12 +18,17 @@
             <input type="hidden" asp-for="task_id" />
             <div class="form-group invisible" style="height: 0px; width: 0px;">
                 <label asp-for="ApplicationUserId" class="control-label">@localizer["User"]</label>
-                <input asp-for="ApplicationUserId" class="form-control" />
+                <input asp-for="ApplicationUserId" class="form-control" value="@userId" />
                 <span asp-validation-for="ApplicationUserId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group invisible" style="height: 0px; width: 0px;">
+                <label asp-for="user_ini" class="control-label">@localizer["User"]</label>
+                <input asp-for="user_ini" class="form-control" value="@TempData["UserIdentityTwo"]"/>
+                <span asp-validation-for="user_ini" class="text-danger"></span>
+            </div>
+            <div class="form-group invisible" style="height: 0px; width: 0px;">
                 <label asp-for="user_mail" class="control-label">@localizer["User"]</label>
-                <input asp-for="user_mail" class="form-control" />
+                <input asp-for="user_mail" class="form-control" value="@TempData["UserIdentityFull"]"/>
                 <span asp-validation-for="user_mail" class="text-danger"></span>
             </div>
 

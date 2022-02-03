@@ -100,13 +100,21 @@ namespace WorkBoard.Controllers
             {
                 return NotFound();
             }
+            string userFirst = User.Identity.Name[0].ToString();
+            string userSecond = User.Identity.Name[1].ToString();
+            TempData["UserIdentityFull"] = User.Identity.Name.ToString();
+            TempData["UserIdentityTwo"] = (userFirst + userSecond).ToUpper();
             return View(task);
         }
 
         [HttpPost]
-        public IActionResult Edit([Bind(include:"task_id, ApplicationUserId, task_name, status, description, team, creation_date, deadline_date, modification_date")] Task task)
+        public IActionResult Edit([Bind(include:"task_id, ApplicationUserId, task_name, status, description, team, creation_date, deadline_date, modification_date, user_mail, user_ini,")] Task task)
         {
-            if(ModelState.IsValid)
+            string userFirst = User.Identity.Name[0].ToString();
+            string userSecond = User.Identity.Name[1].ToString();
+            TempData["UserIdentityFull"] = User.Identity.Name.ToString();
+            TempData["UserIdentityTwo"] = (userFirst + userSecond).ToUpper();
+            if (ModelState.IsValid)
             {
                 db.Tasks.Update(task);
                 db.SaveChanges();
