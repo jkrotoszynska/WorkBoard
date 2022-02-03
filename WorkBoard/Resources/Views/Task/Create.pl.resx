@@ -138,6 +138,9 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="Task" xml:space="preserve">
+    <value>Zadanie</value>
+  </data>
   <data name="TaskID" xml:space="preserve">
     <value>ID Zadania</value>
   </data>

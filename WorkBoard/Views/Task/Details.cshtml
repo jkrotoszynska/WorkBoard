@@ -1,65 +1,66 @@
 ﻿@model WorkBoard.Models.Task
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 @using WorkBoard.Models;
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @localizer["Details"];
 }
 
-<h1>Details</h1>
+<h1>@localizer["Details"]</h1>
 
 <div>
-    <h4>Task</h4>
+    <h4>@localizer["Task"]</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.task_id)
+            @localizer["TaskID"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.task_id)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ApplicationUserId)
+            @localizer["User"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ApplicationUserId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.task_name)
+            @localizer["TaskName"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.task_name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.status)
+            @localizer["Status"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.status)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
+            @localizer["Description"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.team)
+            @localizer["Team"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.team)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.creation_date)
+            @localizer["CreationDate"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.creation_date)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.deadline_date)
+            @localizer["DeadlineDate"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.deadline_date)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.modification_date)
+            @localizer["ModificationDate"]
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.modification_date)
@@ -67,6 +68,6 @@
     </dl>
 </div>
 <div class="d-flex align-items-center">
-    <a asp-action="Index" class="mr-3 align-middle" title="Back"><i class="bi bi-arrow-left-square mr-2 text-primary" style="font-size:24px;" ></i></a>
-    <a asp-action="Edit" asp-route-id="@Model.task_id" class="align-middle" title="Edit"><i class="bi bi-pencil-square text-warning" style="font-size:24px;"></i></a>
+    <a asp-action="Index" class="mr-3 align-middle" title="@localizer["Back"]"><i class="bi bi-arrow-left-square mr-2 text-primary" style="font-size:24px;"></i></a>
+    <a asp-action="Edit" asp-route-id="@Model.task_id" class="align-middle" title="@localizer["Edit"]"><i class="bi bi-pencil-square text-warning" style="font-size:24px;"></i></a>
 </div>

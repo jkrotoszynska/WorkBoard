@@ -2,7 +2,7 @@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 
 @{
-    ViewData["Title"] = "Lista tasków";
+    ViewData["Title"] = localizer["TaskList"];
 }
 
 <div class="mt-4">
@@ -10,7 +10,7 @@
         <h1>@localizer["Tasks"]</h1>
         <h4 >
             <a asp-action="Create">
-                 <input type="submit" value="Create Task" class="btn btn-dark font-weight-bold" />
+                 <input type="submit" value="@localizer["CreateTask"]" class="btn btn-dark font-weight-bold" />
             </a>
         </h4>
 
@@ -32,17 +32,17 @@
         </th>*@
             <th>             
                 @*@Html.DisplayNameFor(model => model.team)*@
-                zespół
+                @localizer["Team"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationUserId)
+                @localizer["User"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.task_name)
+                @localizer["TaskName"]
             </th>
 
             <th class="w-25">
-                @Html.DisplayNameFor(model => model.status)
+                @localizer["Status"]
             </th>
 
             @*<th>
@@ -51,12 +51,12 @@
             @*<th>
             @Html.DisplayNameFor(model => model.creation_date)
         </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.deadline_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.modification_date)
-            </th>
+        <th>
+            @localizer["DeadlineDate"]
+        </th>
+        <th>
+            @localizer["ModificationDate"]
+        </th>
             <th></th>
 
         </tr>
@@ -124,8 +124,8 @@
             <td class="align-middle">
                 <div class="d-flex">
                     <a asp-action="Edit" asp-route-id="@item.task_id" title="@localizer["Edit"]"><i class="bi bi-pencil-square text-warning" style="font-size:19px;"></i></a>
-                    <a asp-action="Details" asp-route-id="@item.task_id" title="Info"><i class="bi bi-info-square-fill text-info" style="font-size:19px; padding: 0px 9px 0px 9px;"></i></a>
-                    <a asp-action="Delete" asp-route-id="@item.task_id" title="Done"><i class="bi bi-check-square-fill text-success" on style="font-size: 19px;"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.task_id" title="@localizer["Info"]"><i class="bi bi-info-square-fill text-info" style="font-size:19px; padding: 0px 9px 0px 9px;"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.task_id" title="@localizer["Done"]"><i class="bi bi-check-square-fill text-success" on style="font-size: 19px;"></i></a>
                 </div>
             </td>
         </tr>
