@@ -19,6 +19,12 @@ namespace WorkBoard.Models
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
+        [Display(Name = "User Mail")]
+        public string user_mail { get; set; }
+
+        [Display(Name = "User Ini")]
+        public string user_ini { get; set; }
+
         [Display(Name = "Task name")]
         public string task_name{ get; set; }
 
