@@ -1,4 +1,6 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 <section>
@@ -11,8 +13,8 @@
 
     <article id="menage" class="container mb-5">
         <div class="align-content-start">
-            <h4>Menage tasks accross company.</h4>
-            <span>Gain a control to fully menage tasks and processes of your company.</span>
+            <h4>@localizer["Art1Head"]</h4>
+            <span>@localizer["Art1Body"]</span>
         </div>
         <div>
             <img />
@@ -21,8 +23,8 @@
 
     <article id="workspace" class="container mb-5">
         <div class="align-content-start">
-            <h4>Everything in one workspace</h4>
-            <span>Planning, tracking and delivering your team’s best work has never been easier</span>
+            <h4>@localizer["Art2Head"]</h4>
+            <span>@localizer["Art2Body"]</span>
         </div>
         <div>
             <img />
@@ -31,8 +33,8 @@
 
     <article id="visualize" class="container mb-5">
         <div class="align-content-start">
-            <h4>Visualize your work</h4>
-            <span>View all the tasks in easy way</span>
+            <h4>@localizer["Art3Head"]</h4>
+            <span>@localizer["Art3Body"]</span>
         </div>
         <div>
             <img />
