@@ -7,6 +7,7 @@ using WorkBoard.Models;
 using Microsoft.EntityFrameworkCore;
 using Task = WorkBoard.Models.Task; // ???
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace WorkBoard.Controllers
 {
