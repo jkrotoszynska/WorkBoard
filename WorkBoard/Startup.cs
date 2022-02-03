@@ -54,13 +54,13 @@ namespace WorkBoard
             services.AddControllersWithViews();
 
             //sesja
-            services.AddDistributedMemoryCache();
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(10);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
+            //services.AddDistributedMemoryCache();
+            //services.AddSession(options =>
+            //{
+            //    options.IdleTimeout = TimeSpan.FromMinutes(10);
+            //    options.Cookie.HttpOnly = true;
+            //    options.Cookie.IsEssential = true;
+            //});
 
             //lokalizacja
             services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
@@ -102,7 +102,7 @@ namespace WorkBoard
 
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSession();
+            //app.UseSession();
 
             //Lokalizacja
             //var supportedCultures = new[] { "en", "pl" };
