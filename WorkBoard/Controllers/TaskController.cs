@@ -16,12 +16,9 @@ namespace WorkBoard.Controllers
     {
         private readonly TasksContext db;
 
-
-
         public TaskController(TasksContext context)
         {
             db = context;
-
         }
         public IActionResult Index()
         {
@@ -57,20 +54,13 @@ namespace WorkBoard.Controllers
 
         public IActionResult Details(int id)
         {
-            try
+            Task task = db.Tasks.Find(id);
+            if (task == null)
             {
-                Task task = db.Tasks.Find(id);
-                if (task == null)
-                {
-                    Response.StatusCode = 404;
-                    return View("IdNotFound", id);
-                }
-                return View(task);
+                Response.StatusCode = 404;
+                return View("IdNotFound", id);
             }
-            catch (Exception ex)
-            {
-                return View();
-            }
+            return View(task);
         }
 
         public IActionResult Delete(int id)
@@ -88,7 +78,6 @@ namespace WorkBoard.Controllers
                 return RedirectToAction("Index");
             }
             return View();
-            
         }
 
         public IActionResult Edit(int id)
