@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back" xml:space="preserve">
-    <value>Back</value>
+    <value>Powrót</value>
   </data>
   <data name="CreationDate" xml:space="preserve">
-    <value>Creation Date</value>
+    <value>Data Utworzenia</value>
   </data>
   <data name="DeadlineDate" xml:space="preserve">
-    <value>Deadline Date</value>
+    <value>Data Końcowa</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Opis</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>Szczegóły</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edytuj</value>
   </data>
   <data name="FilteredTitle" xml:space="preserve">
-    <value>Filtered by Task</value>
+    <value>Filtrowanie po Zadaniu</value>
   </data>
   <data name="ModificationDate" xml:space="preserve">
-    <value>Modification Date</value>
+    <value>Data Modyfikacji</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Task" xml:space="preserve">
-    <value>Task</value>
+    <value>Zadanie</value>
   </data>
   <data name="TaskID" xml:space="preserve">
-    <value>Task ID</value>
+    <value>ID Zadania</value>
   </data>
   <data name="TaskName" xml:space="preserve">
-    <value>Task Name</value>
+    <value>Nazwa Zadania</value>
   </data>
   <data name="Team" xml:space="preserve">
-    <value>Team</value>
+    <value>Zespół</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>Użytkownik</value>
   </data>
 </root>

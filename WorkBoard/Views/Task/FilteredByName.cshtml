@@ -5,75 +5,132 @@
     ViewData["Title"] = localizer["FilteredTitle"];
 }
 
-<h1>@localizer["FilteredTitle"]</h1>
+<div class="mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>@localizer["FilteredTitle"]</h1>
+        <h4>
+            <a asp-action="Create">
+                <input type="submit" value="@localizer["CreateTask"]" class="btn btn-dark font-weight-bold" />
+            </a>
+        </h4>
 
-<p>
-    <a asp-action="Create">@localizer["CreateNew"]</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @localizer["User"]
-            </th>
-            <th>
-                @localizer["TaskName"]
-            </th>
-            <th>
-                @localizer["Status"]
-            </th>
-            <th>
-                @localizer["Description"]
-            </th>
-            <th>
-                @localizer["Team"]
-            </th>
-            <th>
-                @localizer["CreationDate"]
-            </th>
-            <th>
-                @localizer["DeadlineDate"]
-            </th>
-            <th>
-                @localizer["ModificationDate"]
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    </div>
+</div>
+
+@if (TempData["message"] != null)
+{
+    <h3 class="text-info text-dark">@localizer["LocalTempData"] @TempData["message"]</h3>
+}
+
+
+<div class="overflow-auto">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUserId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.task_name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.team)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.creation_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deadline_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.modification_date)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.task_id">@localizer["Edit"]</a> |
-                    <a asp-action="Details" asp-route-id="@item.task_id">@localizer["Details"]</a> |
-                    <a asp-action="Delete" asp-route-id="@item.task_id">@localizer["Delete"]</a>
-                </td>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.task_id)
+                    </th>*@
+                <th>
+                    @*@Html.DisplayNameFor(model => model.team)*@
+                    @localizer["Team"]
+                </th>
+                <th>
+                    @localizer["User"]
+                </th>
+                <th>
+                    @localizer["TaskName"]
+                </th>
+
+                <th class="w-25">
+                    @localizer["Status"]
+                </th>
+
+                @*<th>
+                        @Html.DisplayNameFor(model => model.description)
+                    </th>*@
+                @*<th>
+                        @Html.DisplayNameFor(model => model.creation_date)
+                    </th>*@
+                <th>
+                    @localizer["DeadlineDate"]
+                </th>
+                <th>
+                    @localizer["ModificationDate"]
+                </th>
+                <th></th>
+
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.task_id)
+                        </td>*@
+                    <td class="align-middle">
+                        <span class="font-weight-bold">@Html.DisplayFor(modelItem => item.team)</span>
+                    </td>
+                    <td class="align-middle">
+                        @{
+                            var random = new Random();
+                            var color = String.Format("#{0:X6}", random.Next(0x1000000) & 0x7F7F7F);
+                            var userHover = Html.DisplayFor(modelItem => item.user_mail);
+                        }
+                        <div class="d-flex text-white rounded-circle align-items-center justify-content-center shadow-sm" style="width:35px; height:35px; background-color: @color;" title="@userHover">
+                            <div class="font-weight-bold" title="@userHover">@Html.DisplayFor(modelItem => item.user_ini)</div>
+                        </div>
+
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.task_name)
+                    </td>
+                    <td class="align-middle">
+                        <div class="progress">
+                            @{
+                                int status = Int32.Parse(item.status);
+                                string statusColor;
+                                if (status <= 30)
+                                {
+                                    statusColor = "danger";
+                                }
+                                else if (status > 30 && status <= 60)
+                                {
+                                    statusColor = "warning";
+                                }
+                                else if (status > 60 && status < 100)
+                                {
+                                    statusColor = "info";
+                                }
+                                else
+                                {
+                                    statusColor = "success";
+                                }
+                            }
+                            <div class="progress-bar @("bg-" + statusColor)" role="progressbar" style="width: @(status + "%")" aria-valuenow="@(status)" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>*@
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.creation_date)
+                        </td>*@
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.deadline_date)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.modification_date)
+                    </td>
+                    <td class="align-middle">
+                        <div class="d-flex">
+                            <a asp-action="Edit" asp-route-id="@item.task_id" title="@localizer["Edit"]"><i class="bi bi-pencil-square text-warning" style="font-size:19px;"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.task_id" title="@localizer["Info"]"><i class="bi bi-info-square-fill text-info" style="font-size:19px; padding: 0px 9px 0px 9px;"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.task_id" title="@localizer["Done"]"><i class="bi bi-check-square-fill text-success" on style="font-size: 19px;"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
